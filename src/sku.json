@@ -1,0 +1,968 @@
+[
+  {
+    "Codigo": "1002471",
+    "Descripcion": "HELADO BALONCITO CHOCOLATE VAINILLA",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 1",
+    "Velocidad_nominal": "8000"
+  },
+  {
+    "Codigo": "1003243",
+    "Descripcion": "HELADO TONI MAJESTIK MINI VAINILLA 67 ML",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 1",
+    "Velocidad_nominal": "7000"
+  },
+  {
+    "Codigo": "1003630",
+    "Descripcion": "HEADO TONI MAJESTIK MINI MANJAR 67 ML",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 1",
+    "Velocidad_nominal": "7000"
+  },
+  {
+    "Codigo": "1002470",
+    "Descripcion": "HELADO BALONCITO CHICLE CHOCOLATE",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 1",
+    "Velocidad_nominal": "8000"
+  },
+  {
+    "Codigo": "1003610",
+    "Descripcion": "HELADO BALONCITO BSC CHOCOLATE VAINILLA",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 1",
+    "Velocidad_nominal": "8000"
+  },
+  {
+    "Codigo": "1003612",
+    "Descripcion": "HELADO BALONCITO LDU CHOCOLATE VAINILLA",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 1",
+    "Velocidad_nominal": "8000"
+  },
+  {
+    "Codigo": "1000006",
+    "Descripcion": "HELADO BIG BAR (1x24u)",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 1",
+    "Velocidad_nominal": "6000"
+  },
+  {
+    "Codigo": "1001160",
+    "Descripcion": "HELADO BIG BAR BLANCO",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 1",
+    "Velocidad_nominal": "6000"
+  },
+  {
+    "Codigo": "1004159",
+    "Descripcion": "HELADO TONI MAJESTIK MINI FRUTOS DEL BOSQUE 69 ML",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 1",
+    "Velocidad_nominal": "7000"
+  },
+  {
+    "Codigo": "1002502",
+    "Descripcion": "HELADO MIAU",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 1",
+    "Velocidad_nominal": "6000"
+  },
+  {
+    "Codigo": "1004314",
+    "Descripcion": "HELADO MINI MAJESTIK PACCARI MENTA 65 ML",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 1",
+    "Velocidad_nominal": "7000"
+  },
+  {
+    "Codigo": "1003875",
+    "Descripcion": "HELADO TONI BLOQ MACCHI",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 1",
+    "Velocidad_nominal": "0"
+  },
+  {
+    "Codigo": "1003876",
+    "Descripcion": "HELADO TONI BLOQ VAIN",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 1",
+    "Velocidad_nominal": "0"
+  },
+  {
+    "Codigo": "1002991",
+    "Descripcion": "AASS BIG BAR PAQUETERIA ",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 1",
+    "Velocidad_nominal": "6000"
+  },
+  {
+    "Codigo": "1000960",
+    "Descripcion": "BARRA BIG BAR X 6 U",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 1",
+    "Velocidad_nominal": "6000"
+  },
+  {
+    "Codigo": "1000016",
+    "Descripcion": "HELADO FRESA FROZEN(1x50)",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 2",
+    "Velocidad_nominal": "8500"
+  },
+  {
+    "Codigo": "1000069",
+    "Descripcion": "HELADO CHICLE FROZEN",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 2",
+    "Velocidad_nominal": "8500"
+  },
+  {
+    "Codigo": "1001090",
+    "Descripcion": "HELADO FROZEN DUO LECHE CHOCOLATE",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 2",
+    "Velocidad_nominal": "8500"
+  },
+  {
+    "Codigo": "1003111",
+    "Descripcion": "HELADO TOPSY DOLCE TRES LECHE",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 2",
+    "Velocidad_nominal": "8500"
+  },
+  {
+    "Codigo": "1001091",
+    "Descripcion": "HELADO FROZEN DUO LIMON NARANJA",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 2",
+    "Velocidad_nominal": "8500"
+  },
+  {
+    "Codigo": "1000017",
+    "Descripcion": "HELADO NARANJA FROZEN(1x50)",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 2",
+    "Velocidad_nominal": "8500"
+  },
+  {
+    "Codigo": "1003110",
+    "Descripcion": "HELADO TOPSY DOLCE CHEESECAKE FRUTILLA",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 2",
+    "Velocidad_nominal": "8500"
+  },
+  {
+    "Codigo": "1000007",
+    "Descripcion": "HELADO BOMBOM (1x24u)",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 3",
+    "Velocidad_nominal": "3200"
+  },
+  {
+    "Codigo": "1000009",
+    "Descripcion": "HELADO BOMBOM CARIÑO (1x24u)",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 3",
+    "Velocidad_nominal": "3200"
+  },
+  {
+    "Codigo": "1003490",
+    "Descripcion": "HELADO BOMBON CAFE S&C",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 3",
+    "Velocidad_nominal": "3200"
+  },
+  {
+    "Codigo": "1002080",
+    "Descripcion": "HELADO BOMBON MENTA 110ML",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 3",
+    "Velocidad_nominal": "3200"
+  },
+  {
+    "Codigo": "1002990",
+    "Descripcion": "AASS BOMBON CLÁSICO PAQUETERIA",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 3",
+    "Velocidad_nominal": "3200"
+  },
+  {
+    "Codigo": "1000018",
+    "Descripcion": "HELADO GALLET.CHOC/FRUT(1x20u",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 4",
+    "Velocidad_nominal": "5000"
+  },
+  {
+    "Codigo": "1000013",
+    "Descripcion": "HELADO CONO FLAMA(1x24u)",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 4",
+    "Velocidad_nominal": "7000"
+  },
+  {
+    "Codigo": "1000000",
+    "Descripcion": "HELADO ALFAJOR 47gr.(1x20u)",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 4",
+    "Velocidad_nominal": "6000"
+  },
+  {
+    "Codigo": "1000019",
+    "Descripcion": "HELADO GALL.VAINILLA(1x20u)",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 4",
+    "Velocidad_nominal": "7000"
+  },
+  {
+    "Codigo": "1000015",
+    "Descripcion": "HELADO DONA (1x15u)",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 4",
+    "Velocidad_nominal": "7000"
+  },
+  {
+    "Codigo": "1000003",
+    "Descripcion": "HELADO AS CROCANTE BL(1x22u)",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 4",
+    "Velocidad_nominal": "7000"
+  },
+  {
+    "Codigo": "1003241",
+    "Descripcion": "HELADO TONI MAJESTIK VAINILLA 105 ML",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 4",
+    "Velocidad_nominal": "7000"
+  },
+  {
+    "Codigo": "1004315",
+    "Descripcion": "HELADO MINI MAJESTIK PACCARI MORA 65 ML",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 4",
+    "Velocidad_nominal": "7000"
+  },
+  {
+    "Codigo": "1000035",
+    "Descripcion": "HELADO MAJESTIK ALMENDRA(1x14u)",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 4",
+    "Velocidad_nominal": "7000"
+  },
+  {
+    "Codigo": "1001800",
+    "Descripcion": "HELADO CONO FLAMA BLANCO",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 4",
+    "Velocidad_nominal": "7000"
+  },
+  {
+    "Codigo": "1004188",
+    "Descripcion": "HELADO MINI GALLETOPSY 62ML (1X14)",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 4",
+    "Velocidad_nominal": "5000"
+  },
+  {
+    "Codigo": "1004158",
+    "Descripcion": "HELADO TONI MAJESTIK SUPREMO PISTACHO",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 4",
+    "Velocidad_nominal": "5000"
+  },
+  {
+    "Codigo": "1003600",
+    "Descripcion": "HELADO TONI MAJESTIK SUPREMO VAIN-CHOC",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 4",
+    "Velocidad_nominal": "5000"
+  },
+  {
+    "Codigo": "1000060",
+    "Descripcion": "HELADO TOPSY CHOC (1x60u)",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 5",
+    "Velocidad_nominal": "15000"
+  },
+  {
+    "Codigo": "1000059",
+    "Descripcion": "HELADO CHOC BLANCO (1x60u)",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 5",
+    "Velocidad_nominal": "15000"
+  },
+  {
+    "Codigo": "1004274",
+    "Descripcion": "TOPSY CHOCO CHOC 60ML CAJA X 60 UNIDADES",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 5",
+    "Velocidad_nominal": "15000"
+  },
+  {
+    "Codigo": "1002701",
+    "Descripcion": "TOPSY CHOC FRUTILLA 60ML",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 5",
+    "Velocidad_nominal": "15000"
+  },
+  {
+    "Codigo": "1000065",
+    "Descripcion": "TU Y YO (1x24u)",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 5",
+    "Velocidad_nominal": "12500"
+  },
+  {
+    "Codigo": "1004223",
+    "Descripcion": "AASS HELADO LITRO YOGURT TONI",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 6",
+    "Velocidad_nominal": "1800"
+  },
+  {
+    "Codigo": "1002922",
+    "Descripcion": "AASS HELADO TARRINA FRUT 1lt",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 6",
+    "Velocidad_nominal": "1800"
+  },
+  {
+    "Codigo": "1000010",
+    "Descripcion": "HELADO BUG.GUM CHICLE (1x30u)",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 6",
+    "Velocidad_nominal": "6500"
+  },
+  {
+    "Codigo": "1002929",
+    "Descripcion": "AASS HELADO TAR S&C 1lt",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 6",
+    "Velocidad_nominal": "1800"
+  },
+  {
+    "Codigo": "1004389",
+    "Descripcion": "AASS HELADO TOPSY CHOCOAVELLANA 1LT",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 6",
+    "Velocidad_nominal": "1800"
+  },
+  {
+    "Codigo": "1000031",
+    "Descripcion": "LITRO VAINILLA X 6 U",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 6",
+    "Velocidad_nominal": "1800"
+  },
+  {
+    "Codigo": "1003621",
+    "Descripcion": "AASS LITRO TOPSY DOLCE CHEESECAKE FRUT.",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 6",
+    "Velocidad_nominal": "1800"
+  },
+  {
+    "Codigo": "1003620",
+    "Descripcion": "AASS LITRO TOPSY DOLCE TRES LECHES",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 6",
+    "Velocidad_nominal": "1800"
+  },
+  {
+    "Codigo": "1002180",
+    "Descripcion": "HELADO DE CAFÉ S&C 1LT SMX",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 6",
+    "Velocidad_nominal": "1800"
+  },
+  {
+    "Codigo": "1002921",
+    "Descripcion": "AASS HELADO TAR CREM/GAL 1lt",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 6",
+    "Velocidad_nominal": "1800"
+  },
+  {
+    "Codigo": "1002924",
+    "Descripcion": "AASS HELADO TAR RONPASAS 1lt",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 6",
+    "Velocidad_nominal": "1800"
+  },
+  {
+    "Codigo": "1002926",
+    "Descripcion": "AASS HELADO TAR VAINILLA 1lt",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 6",
+    "Velocidad_nominal": "1800"
+  },
+  {
+    "Codigo": "1000021",
+    "Descripcion": "LITRO CHOCOLATE  X 6 U",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 6",
+    "Velocidad_nominal": "1800"
+  },
+  {
+    "Codigo": "1000014",
+    "Descripcion": "HELADO VAI.M&M 15UN",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 6",
+    "Velocidad_nominal": "6000"
+  },
+  {
+    "Codigo": "1000029",
+    "Descripcion": "LITRO RON PASA X 6 U",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 6",
+    "Velocidad_nominal": "1800"
+  },
+  {
+    "Codigo": "1002920",
+    "Descripcion": "AASS HELADO TARRINA CHOC 1lt",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 6",
+    "Velocidad_nominal": "1800"
+  },
+  {
+    "Codigo": "1000025",
+    "Descripcion": "LITRO M&M X 6 UNDS. V.1. L.1",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 6",
+    "Velocidad_nominal": "1800"
+  },
+  {
+    "Codigo": "1000033",
+    "Descripcion": "LITRO PREMIUM VAINILLA MORA X 6 U",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 6",
+    "Velocidad_nominal": "1800"
+  },
+  {
+    "Codigo": "1002928",
+    "Descripcion": "AASS HELADO TAR CHICLE 1lt",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 6",
+    "Velocidad_nominal": "1800"
+  },
+  {
+    "Codigo": "1000028",
+    "Descripcion": "HELADO TARRINA RON PASAS 1lt.",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 6",
+    "Velocidad_nominal": "1800"
+  },
+  {
+    "Codigo": "1004232",
+    "Descripcion": "HELADO TONI LITRO MANJAR CAJA X6 UNIDADES",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 6",
+    "Velocidad_nominal": "1800"
+  },
+  {
+    "Codigo": "1002923",
+    "Descripcion": "AASS HELADO TAR M&M 1lt",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 6",
+    "Velocidad_nominal": "1800"
+  },
+  {
+    "Codigo": "1002927",
+    "Descripcion": "AASS HELADO TAR TRPCHOC 1lt",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 6",
+    "Velocidad_nominal": "1800"
+  },
+  {
+    "Codigo": "1000020",
+    "Descripcion": "HELADO TARRINA CHOCOLATE 1lt.",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 6",
+    "Velocidad_nominal": "1800"
+  },
+  {
+    "Codigo": "1002271",
+    "Descripcion": "HELADO VASITO FRUTILLA 100ML",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 6",
+    "Velocidad_nominal": "5000"
+  },
+  {
+    "Codigo": "1000030",
+    "Descripcion": "HELADO TARRINA VAINILLA 1lt.",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 6",
+    "Velocidad_nominal": "1800"
+  },
+  {
+    "Codigo": "1001040",
+    "Descripcion": "HELADO LITRO CHICLE SUPER",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 6",
+    "Velocidad_nominal": "1800"
+  },
+  {
+    "Codigo": "1002925",
+    "Descripcion": "AASS HELADO TAR VAI-MORA 1lt",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 6",
+    "Velocidad_nominal": "1800"
+  },
+  {
+    "Codigo": "1000026",
+    "Descripcion": "HELADO PREMIUM 1LT CREMA-GALLE",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 6",
+    "Velocidad_nominal": "1800"
+  },
+  {
+    "Codigo": "1000034",
+    "Descripcion": "LITRO PREMIUM CREMA Y GALLETA X 6 U",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 6",
+    "Velocidad_nominal": "1800"
+  },
+  {
+    "Codigo": "1002010",
+    "Descripcion": "HELADO TRIPLE CHOCOLATE SUPER",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 6",
+    "Velocidad_nominal": "1800"
+  },
+  {
+    "Codigo": "1003623",
+    "Descripcion": "SMX LITRO TOPSY DOLCE TRES LECHES",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 6",
+    "Velocidad_nominal": "1800"
+  },
+  {
+    "Codigo": "1002063",
+    "Descripcion": "HELADO YOGURT FRUTILLA 1LT",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 6",
+    "Velocidad_nominal": "1800"
+  },
+  {
+    "Codigo": "1002270",
+    "Descripcion": "HELADO VASITO CHOCOLATE 100ML",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 6",
+    "Velocidad_nominal": "5000"
+  },
+  {
+    "Codigo": "1002120",
+    "Descripcion": "HELADO DE CAFÉ S&C 1LT",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 6",
+    "Velocidad_nominal": "1800"
+  },
+  {
+    "Codigo": "1000022",
+    "Descripcion": "HELADO TARRINA FRUTILLA 1lt.",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 6",
+    "Velocidad_nominal": "1800"
+  },
+  {
+    "Codigo": "1000554",
+    "Descripcion": "HELADO PREMIUM CHICLE 1LT",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 6",
+    "Velocidad_nominal": "1800"
+  },
+  {
+    "Codigo": "1000024",
+    "Descripcion": "HELADO 1LT M&M",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 6",
+    "Velocidad_nominal": "1800"
+  },
+  {
+    "Codigo": "1003572",
+    "Descripcion": "LITRO TOPSY DOLCE TRES LECHES",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 6",
+    "Velocidad_nominal": "1800"
+  },
+  {
+    "Codigo": "1000027",
+    "Descripcion": "HELADO PREMIUM 1LT VAIN.-MORA",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 6",
+    "Velocidad_nominal": "1800"
+  },
+  {
+    "Codigo": "1004233",
+    "Descripcion": "AASS HELADO TONI LITRO MANJAR CAJA X 6 UNIDADES",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 6",
+    "Velocidad_nominal": "1800"
+  },
+  {
+    "Codigo": "1001950",
+    "Descripcion": "HELADO LITRO TRIPLE CHOCOLATE",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 6",
+    "Velocidad_nominal": "1800"
+  },
+  {
+    "Codigo": "1003571",
+    "Descripcion": "LITRO TOPSY DOLCE CHEESECAKE FRUT.",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 6",
+    "Velocidad_nominal": "1800"
+  },
+  {
+    "Codigo": "1004382",
+    "Descripcion": "HELADO TOPSY CHOCOAVELLANA 1LT",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 6",
+    "Velocidad_nominal": "1800"
+  },
+  {
+    "Codigo": "1002064",
+    "Descripcion": "HELADO YOGURT FRUTILLA 1LT SUPER",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 6",
+    "Velocidad_nominal": "1800"
+  },
+  {
+    "Codigo": "1000023",
+    "Descripcion": "LITRO FRUTILLA X 6 U",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 6",
+    "Velocidad_nominal": "1800"
+  },
+  {
+    "Codigo": "1003622",
+    "Descripcion": "SMX LITRO TOPSY DOLCE CHEESECAKE FRUTILLA",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 6",
+    "Velocidad_nominal": "1800"
+  },
+  {
+    "Codigo": "1000056",
+    "Descripcion": "HELADO 10LT VAIN.SWEET & COFE",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 7",
+    "Velocidad_nominal": "100"
+  },
+  {
+    "Codigo": "1000043",
+    "Descripcion": "HELADO TACHO CHOCOLATE 10lts.",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 7",
+    "Velocidad_nominal": "100"
+  },
+  {
+    "Codigo": "1000073",
+    "Descripcion": "HELADO TACHO OREO 10lts.",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 7",
+    "Velocidad_nominal": "100"
+  },
+  {
+    "Codigo": "1000057",
+    "Descripcion": "HELADO TACHO VAINILLA  10lts.",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 7",
+    "Velocidad_nominal": "100"
+  },
+  {
+    "Codigo": "1000074",
+    "Descripcion": "HELADO TACHO RON PASAS 10lts.",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 7",
+    "Velocidad_nominal": "100"
+  },
+  {
+    "Codigo": "1000541",
+    "Descripcion": "HELADO TACHO TRIPLE CHOCO.2F",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 7",
+    "Velocidad_nominal": "100"
+  },
+  {
+    "Codigo": "1000048",
+    "Descripcion": "HELADO TACHO COCO MANJAR 10lts",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 7",
+    "Velocidad_nominal": "100"
+  },
+  {
+    "Codigo": "1000072",
+    "Descripcion": "HELADO TACHO MORA 10 LT",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 7",
+    "Velocidad_nominal": "100"
+  },
+  {
+    "Codigo": "1000071",
+    "Descripcion": "TACHO M&M 2F",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 7",
+    "Velocidad_nominal": "100"
+  },
+  {
+    "Codigo": "1000039",
+    "Descripcion": "HELADO TACHO R.PASAS/FRUT10LTS",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 7",
+    "Velocidad_nominal": "100"
+  },
+  {
+    "Codigo": "1000062",
+    "Descripcion": "TORTA HELADA CARIÑO",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 7",
+    "Velocidad_nominal": "600"
+  },
+  {
+    "Codigo": "1000040",
+    "Descripcion": "HELADO TACHO VAIN./CHOCO.10lts",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 7",
+    "Velocidad_nominal": "100"
+  },
+  {
+    "Codigo": "1000049",
+    "Descripcion": "HELADO 10LT FRUT.SWEET & COFE",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 7",
+    "Velocidad_nominal": "100"
+  },
+  {
+    "Codigo": "1000075",
+    "Descripcion": "HELADO TACHO TOP CHICLE 10lts.",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 7",
+    "Velocidad_nominal": "100"
+  },
+  {
+    "Codigo": "1000045",
+    "Descripcion": "HELADO TACHO COCO 10lts.",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 7",
+    "Velocidad_nominal": "100"
+  },
+  {
+    "Codigo": "1002410",
+    "Descripcion": "TACHO HELADO DE CAFÉ S&C 10 LT",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 7",
+    "Velocidad_nominal": "100"
+  },
+  {
+    "Codigo": "1000041",
+    "Descripcion": "HELADO TACHO CHICLE/OREO 10lts",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 7",
+    "Velocidad_nominal": "100"
+  },
+  {
+    "Codigo": "1000054",
+    "Descripcion": "HELADO TACHO SUNDAE 10lts.",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 7",
+    "Velocidad_nominal": "100"
+  },
+  {
+    "Codigo": "1000070",
+    "Descripcion": "HELADO TACHO FRUTILLA 10lts.",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 7",
+    "Velocidad_nominal": "100"
+  },
+  {
+    "Codigo": "1000063",
+    "Descripcion": "TORTA HELADO IMPERIAL",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 7",
+    "Velocidad_nominal": "600"
+  },
+  {
+    "Codigo": "1003711",
+    "Descripcion": "HELADO TACHO 1F M&M",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 7",
+    "Velocidad_nominal": "100"
+  },
+  {
+    "Codigo": "1003710",
+    "Descripcion": "HELADO TACHO 1F TRIPLE CHOCO",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 7",
+    "Velocidad_nominal": "100"
+  },
+  {
+    "Codigo": "1000047",
+    "Descripcion": "TACHO CREMAYGALLETAS2F",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 7",
+    "Velocidad_nominal": "90"
+  },
+  {
+    "Codigo": "1000052",
+    "Descripcion": "TACHO RON PASA 2F",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 7",
+    "Velocidad_nominal": "100"
+  },
+  {
+    "Codigo": "1000053",
+    "Descripcion": "TACHO TOP CHICLE 2F",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 7",
+    "Velocidad_nominal": "100"
+  },
+  {
+    "Codigo": "1000036",
+    "Descripcion": "MINI TORTA DE FRUTILLA",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 7",
+    "Velocidad_nominal": "600"
+  },
+  {
+    "Codigo": "1000064",
+    "Descripcion": "TORTA IMPERIAL VAINILLA X 4 U",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 7",
+    "Velocidad_nominal": "500"
+  },
+  {
+    "Codigo": "1004457",
+    "Descripcion": "TACHO 10 LTS. PISTACHO 1F",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 7",
+    "Velocidad_nominal": "100"
+  },
+  {
+    "Codigo": "1004458",
+    "Descripcion": "HELADO TACHO 10 LTS. MANJAR ALMENDRAS",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 7",
+    "Velocidad_nominal": "100"
+  },
+  {
+    "Codigo": "1004421",
+    "Descripcion": "HELADO TONI MAJESTIK SUPREMO CARAMELO SALADO",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 4",
+    "Velocidad_nominal": "5000"
+  },
+  {
+    "Codigo": "1000961",
+    "Descripcion": "SIX PACK BOMBON",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 3",
+    "Velocidad_nominal": "3200"
+  },
+  {
+    "Codigo": "1002931",
+    "Descripcion": "AASS HELADO MINI TORTA",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 6",
+    "Velocidad_nominal": "500"
+  },
+  {
+    "Codigo": "1002930",
+    "Descripcion": "AASS TORTA HELADA CARIÑO ",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 7",
+    "Velocidad_nominal": "500"
+  },
+  {
+    "Codigo": "1004536",
+    "Descripcion": "HELADO FROZEN UVA (1X50)",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 2",
+    "Velocidad_nominal": "8500"
+  },
+  {
+    "Codigo": "1004468",
+    "Descripcion": "HELADO FROZEN FRESA (1X50)",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 2",
+    "Velocidad_nominal": "8500"
+  },
+  {
+    "Codigo": "1004467",
+    "Descripcion": "HELADO FROZEN CHICLE (1X50)",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 2",
+    "Velocidad_nominal": "8500"
+  },
+  {
+    "Codigo": "1003242",
+    "Descripcion": "3776 HELADO TONI MAJESTIK MANJAR   ",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 4",
+    "Velocidad_nominal": "5000"
+  },
+  {
+    "Codigo": "1002931",
+    "Descripcion": "AASS HELADO MINI TORTA",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 7",
+    "Velocidad_nominal": "500"
+  },
+  {
+    "Codigo": "1004560",
+    "Descripcion": "1004560\n - HELADO BOMBOM CARIÑO (1x24u)_EXP",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 3",
+    "Velocidad_nominal": "3200"
+  },
+  {
+    "Codigo": "1004559",
+    "Descripcion": "1004559 - HELADO BOMBOM (1x24u)_EXP",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 3",
+    "Velocidad_nominal": "3200"
+  },
+  {
+    "Codigo": "1004558",
+    "Descripcion": "1004558 - HELADO BIG BAR (1x24u)_EXP",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 1",
+    "Velocidad_nominal": "6000"
+  },
+  {
+    "Codigo": "1004555",
+    "Descripcion": "HELADO MINI MAJESTIK PACCARI MARACUYA 65ML",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 4",
+    "Velocidad_nominal": "7000"
+  },
+  {
+    "Codigo": "1004561",
+    "Descripcion": "HELADO TONI BUGY GUM 130ML EXPORT",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 6",
+    "Velocidad_nominal": "6000"
+  },
+  {
+    "Codigo": "1004593",
+    "Descripcion": "GALLETOPSY TIRAMISU COBRANDING S&C 118ML",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 4",
+    "Velocidad_nominal": "5000"
+  },
+  {
+    "Codigo": "1004562",
+    "Descripcion": "CARAMEL MAJESTIK ICE CREAM 3.5 FL OZ ",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 4",
+    "Velocidad_nominal": "5000"
+  },
+  {
+    "Codigo": "1004593",
+    "Descripcion": "HELADO GALLETOPSY TIRAMISU (1X20U)",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 4",
+    "Velocidad_nominal": "5000"
+  }
+]
