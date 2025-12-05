@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React, {  useState } from "react";
 import data from "../data.json";
 import NumberFlow from "@number-flow/react";
 import sku from "../sku.json";
 
 import TablaParos from "./TablaParos";
 export default function ElegantProductionForm() {
-  const [cant_T,setCant_T]=useState("")
-  const [cant_hr_T,setHr_T]=useState("")
+
+
   const [formData, setFormData] = useState({
     Codigo: "",
     Descripcion: "",
@@ -26,6 +26,9 @@ export default function ElegantProductionForm() {
     observaciones: "",
     paros: {},
   });
+
+  const [horasTeoricas,setHorasTeoricas]=useState("--Elige--")
+ // const [horasTeoricas,setHorasTeoricas]=useState("--Elige--")
   const [loadingSKU, setLoadingSKU] = useState(false);
 
   const handleChange = (e) => {
@@ -61,37 +64,27 @@ export default function ElegantProductionForm() {
         }));
       }
     }
-
-
   };
 
+const handleChange_Horas_teoricas=(e)=>{
+
+  const [hh,mm]=(e.target.value).split(":").map(Number)
+
+  setHorasTeoricas(e.target.value)
+    setFormData((prev) => ({ ...prev, Hrs_Teoricas: e.target.value }));
 
 
-
-
-const handleChangeHrsTeoricas=(e)=>{
-
-      if (
-        formData.Velocidad_nominal !== "" &&
-        formData.Hrs_Teoricas !== "--Elige--"
-      ) {
-
-        setHr_T()
-
-        const [hh, mm] = formData.Hrs_Teoricas.split(":").map(Number);
- 
-        
-      
-        setCant_T ( Number(formData.Velocidad_nominal) * Number(hh) );
-      } else{
-        setCant_T (0);
-      }
-    
+    if (formData.Velocidad_nominal!=="") {
+       setFormData((prev) => ({ ...prev, Cant_Teorica: hh*Number(formData.Velocidad_nominal) }));
+    }
 }
 
 
 
-  console.log(formData,cant_T);
+
+
+
+  console.log(formData,horasTeoricas);
   const handleSubmit = (e) => {
     e.preventDefault();
     alert("Formulario enviado");
@@ -328,10 +321,7 @@ const handleChangeHrsTeoricas=(e)=>{
                 <input
                   type="text"
                   name="Cant_Teorica"
-                  value={
-                  cant_T
-                 
-                  }
+                  value={formData.Cant_Teorica}
                   disabled
                   onChange={handleChange}
                   className="max-w-40 px-4 py-2 border bg-gray-100 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200"
@@ -356,8 +346,8 @@ const handleChangeHrsTeoricas=(e)=>{
                 <div className="relative w-full max-w-40 ">
                   <select
                     name="Hrs_Teoricas"
-                    value={formData.Hrs_Teoricas}
-                    onChange={handleChangeHrsTeoricas}
+                    value={horasTeoricas}
+                    onChange={handleChange_Horas_teoricas}
                     className="w-full appearance-none bg-white px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-200"
                   >
                     <option value="">-- Elige --</option>
@@ -393,8 +383,9 @@ const handleChangeHrsTeoricas=(e)=>{
                   type="text"
                   name="Hrs_Produccion"
                   value={formData.Hrs_Produccion}
+                  disabled
                   onChange={handleChange}
-                  className="max-w-40 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200 "
+                  className="max-w-40 px-4 py-2 border bg-gray-100 border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200 "
                 />
               </div>
             </div>
@@ -466,12 +457,16 @@ const handleChangeHrsTeoricas=(e)=>{
         </div>
 
         {/* Checkbox */}
-        <div className="flex items-center mb-6">
-          <input type="checkbox" className="mr-2 focus:outline-none" />
-          <span className="text-gray-600">
-            Yo, __________________ garantizo que la información ingresada es
-            fidedigna.
-          </span>
+        <div className="flex items-center  justify-center gap-4 mb-6 ">
+          <input type="checkbox" className="mr-2 scale-200 focus:outline-none" />
+
+          <p className="text-gray-600 text-md">
+            Yo,{" "}
+            <span className="font-bold">
+              {(formData?.Lider ?? "").trim() || "__________________"}
+            </span>{" "}
+            garantizo que la información ingresada es fidedigna.
+          </p>
         </div>
 
         {/* Botón */}
