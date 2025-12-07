@@ -1,13 +1,21 @@
-import React, {  useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import data from "../data.json";
 import NumberFlow from "@number-flow/react";
 import sku from "../sku.json";
 
 import TablaParos from "./TablaParos";
 export default function ElegantProductionForm() {
-
-
+ const [doc_num, setDoc_num] = useState("xxxxx-x-xxxxxx");
+ const [dia, setDia] = useState("");
+ const [mes, setMes] = useState("");
+ const [anio, setAnio] = useState("");
+ const [lote,setLote]=useState("");
+ const [linea,setLinea]=useState("");
   const [formData, setFormData] = useState({
+    Doc_num: "xxxxx-x-xxxxxx",
+    anio: "",
+    mes: "",
+    dia: "",
     Codigo: "",
     Descripcion: "",
     Categoria: "",
@@ -27,9 +35,22 @@ export default function ElegantProductionForm() {
     paros: {},
   });
 
-  const [horasTeoricas,setHorasTeoricas]=useState("--Elige--")
- // const [horasTeoricas,setHorasTeoricas]=useState("--Elige--")
+  const [horasTeoricas, setHorasTeoricas] = useState("--Elige--");
+  // const [horasTeoricas,setHorasTeoricas]=useState("--Elige--")
   const [loadingSKU, setLoadingSKU] = useState(false);
+  const totalOperacionales = sumarHorasArray(formData.paros.operacionales);
+  const totalMecanicos = sumarHorasArray(formData.paros.mecanicos);
+  const totalAjenos = sumarHorasArray(formData.paros.ajenos);
+  const totalLimpieza = sumarHorasArray(formData.paros.limpieza);
+  const totalAlimentacion = sumarHorasArray(formData.paros.alimentacion);
+
+  const sumaTotal = sumarHorasArray([
+    totalOperacionales,
+    totalMecanicos,
+    totalAjenos,
+    totalLimpieza,
+    totalAlimentacion,
+  ]);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -62,29 +83,99 @@ export default function ElegantProductionForm() {
           Categoria: "",
           Velocidad_nominal: "",
         }));
+        setLoadingSKU(false);
       }
+    } else{
+      setLoadingSKU(false);
+    }
+
+
+
+
+
+  };
+
+  const handleChange_Horas_teoricas = (e) => {
+    const [hh, _] = e.target.value.split(":").map(Number);
+
+    setHorasTeoricas(e.target.value);
+    setFormData((prev) => ({ ...prev, Hrs_Teoricas: e.target.value }));
+
+    if (formData.Velocidad_nominal !== "") {
+      setFormData((prev) => ({
+        ...prev,
+        Cant_Teorica: hh * Number(formData.Velocidad_nominal),
+      }));
     }
   };
 
-const handleChange_Horas_teoricas=(e)=>{
+  //Datos del hijo paros
+  const handleUpdateParos = useCallback((updateParoe) => {
+    setFormData((prev) => ({
+      ...prev,
+      paros: updateParoe,
+    }));
+  }, []);
 
-  const [hh,mm]=(e.target.value).split(":").map(Number)
+  function normalizeTime(value) {
+    if (value === "" || value == null) return "00:00";
 
-  setHorasTeoricas(e.target.value)
-    setFormData((prev) => ({ ...prev, Hrs_Teoricas: e.target.value }));
+    value = String(value).trim();
 
-
-    if (formData.Velocidad_nominal!=="") {
-       setFormData((prev) => ({ ...prev, Cant_Teorica: hh*Number(formData.Velocidad_nominal) }));
+    if (/^\d+$/.test(value)) {
+      return `${String(parseInt(value)).padStart(2, "0")}:00`;
     }
-}
+
+    const parts = value.split(":");
+    if (parts.length === 2) {
+      let h = parseInt(parts[0].trim()) || 0;
+      let m = parseInt(parts[1].trim()) || 0;
+
+      return `${String(h).padStart(2, "0")}:${String(m).padStart(2, "0")}`;
+    }
+
+    return "00:00";
+  }
+
+  function sumarHorasArray(arr) {
+    if (!Array.isArray(arr) || arr.length === 0) {
+      return "00:00";
+    }
+
+    let totalMinutos = 0;
+
+    arr.forEach((item) => {
+      if (!item || typeof item !== "string") return;
+
+      const time = normalizeTime(item);
+      if (!time) return;
+
+      const partes = time.split(":").map(Number);
+      if (partes.length !== 2 || isNaN(partes[0]) || isNaN(partes[1])) return;
+
+      const [h, m] = partes;
+      totalMinutos += h * 60 + m;
+    });
+
+    const totalH = Math.floor(totalMinutos / 60);
+    const totalM = totalMinutos % 60;
+
+    return `${String(totalH).padStart(2, "0")}:${String(totalM).padStart(
+      2,
+      "0"
+    )}`;
+  }
+
+useEffect(() => {
+if(dia && mes && anio && lote && linea){
+ setDoc_num(`${anio}${String(mes).padStart(2, '0')}${String(dia).padStart(2, '0')}-${lote}-${linea}`);
+}else{
+  setDoc_num("xxxxx-x-xxxxxx");
+}}, [dia,mes,anio,lote,linea]);
 
 
 
-
-
-
-  console.log(formData,horasTeoricas);
+  console.log(formData, horasTeoricas);
   const handleSubmit = (e) => {
     e.preventDefault();
     alert("Formulario enviado");
@@ -105,29 +196,60 @@ const handleChange_Horas_teoricas=(e)=>{
             <input
               type="text"
               name="doc"
-              value={"xxxx-xxxx-xxxx-x"}
-              onChange={handleChange}
+              value={doc_num}
+           
               className="w-40 border-b border-gray-300 px-4 py-2  rounded-none focus:outline-none  focus:ring-blue-500 transition duration-200 "
               readOnly
             />
           </div>
           <div className="flex  gap-4 items-end">
-            <div className="grid grid-cols-3 gap-2">
+            <div className="flex gap-2">
               <input
                 type="number"
                 placeholder="Día"
+                name="dia"
+                value={dia}
+                onChange={(e)=>{setDia(e.target.value);}}
                 className="w-20 px-2 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
               />
               <input
                 type="number"
+                name="mes"
+                value={mes}
+                onChange={(e)=>{setMes(e.target.value);}}
                 placeholder="Mes"
                 className="w-20 px-2 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
               />
-              <input
-                type="number"
-                placeholder="Año"
-                className="w-20 px-2 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
-              />
+              <div className="relative w-full max-w-40 ">
+                <select
+                  name="anio"
+                  value={anio}
+                  onChange={(e)=>{setAnio(e.target.value);}}
+                  className="w-25 appearance-none bg-white px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-200"
+                >
+                  <option value="" disabled>
+                    Año
+                  </option>
+                  <option value="2025">2025</option>
+                  <option value="2026">2026</option>
+                </select>
+                {/* Ícono de flecha */}
+                <div className="absolute inset-y-0 right-3 flex items-center pointer-events-none">
+                  <svg
+                    className="w-5 h-5 text-gray-400"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M19 9l-7 7-7-7"
+                    />
+                  </svg>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -430,8 +552,14 @@ const handleChange_Horas_teoricas=(e)=>{
         </div>
 
         {/* Tabla Paros */}
-        <div className="overflow-x-auto mb-6">
-          <TablaParos></TablaParos>
+        <div className="flex flex-col  overflow-x-auto mb-6">
+          <TablaParos onDatosChange={handleUpdateParos}></TablaParos>
+          <div className="self-end my-5 p-4 border border-neutral-200 rounded-lg bg-neutral-100">
+            <p className="">
+              Total(hrs) Paro:{" "}
+              <span className="font-bold text-lg ml-5">{sumaTotal}</span>
+            </p>
+          </div>
         </div>
 
         {/* Aviso y Observaciones */}
@@ -458,7 +586,10 @@ const handleChange_Horas_teoricas=(e)=>{
 
         {/* Checkbox */}
         <div className="flex items-center  justify-center gap-4 mb-6 ">
-          <input type="checkbox" className="mr-2 scale-200 focus:outline-none" />
+          <input
+            type="checkbox"
+            className="mr-2 scale-200 focus:outline-none"
+          />
 
           <p className="text-gray-600 text-md">
             Yo,{" "}

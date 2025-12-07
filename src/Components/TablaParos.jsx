@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 
-export default function TablaParos() {
+export default function TablaParos({onDatosChange}) {
   const headers_1 = ["Paros(Hrs)", "Operacionales", "Mecánicos"];
   const headers_2 = ["Ajenos", "Limpieza", "Alimentación"];
 
@@ -25,12 +25,10 @@ export default function TablaParos() {
     mecanicos: Array(9).fill(""),
     ajenos: Array(9).fill(""),
     limpieza: Array(9).fill(""),
-    alimentacion: Array(2).fill(""),
+    alimentacion: Array(1).fill(""),
+   
   });
 
-  useEffect(() => {
-    console.log("Nuevo estado:", datos);
-  }, [datos]);
 
   /* Estado para saber qué celda se clikeó */
   const [modal, setModal] = useState({
@@ -39,7 +37,7 @@ export default function TablaParos() {
     colIdx: null,
   });
 
-  console.log(modal);
+
 
   /**Función para abrir el modal */
 
@@ -53,8 +51,7 @@ export default function TablaParos() {
     const h = parseInt(horas, 10);
     const m = parseInt(minutos, 10);
 
-    // Convertir a decimal y redondear a 2 decimales
-    const valor = Number((h + m / 60).toFixed(2));
+    const valor = normalizeTime(`${h}:${m}`);
 
     //pasar horas a decimales
 
@@ -80,8 +77,9 @@ export default function TablaParos() {
           mecanicos: nuevosMecanicos,
         };
       });
+          
     }
-       if (colIdx === 2) {
+    if (colIdx === 2) {
       setDatos((prev) => {
         const nuevosAjenos = [...prev.ajenos];
         nuevosAjenos[rowIdx] = valor;
@@ -92,7 +90,7 @@ export default function TablaParos() {
         };
       });
     }
-         if (colIdx === 3) {
+    if (colIdx === 3) {
       setDatos((prev) => {
         const nuevosLimpieza = [...prev.limpieza];
         nuevosLimpieza[rowIdx] = valor;
@@ -103,10 +101,11 @@ export default function TablaParos() {
         };
       });
     }
-     if (colIdx === 4) {
+    if (colIdx === 4) {
       setDatos((prev) => {
         const nuevosAlimentacion = [...prev.alimentacion];
         nuevosAlimentacion[rowIdx] = valor;
+        
 
         return {
           ...prev,
@@ -114,10 +113,55 @@ export default function TablaParos() {
         };
       });
     }
+   
     setModal({ open: false, rowIdx: null, colKey: null });
     setHoras("");
     setMinutos("");
   };
+
+
+  useEffect(() => {     
+    onDatosChange(datos);
+  }, [datos,onDatosChange]);
+
+
+  function normalizeTime(value) {
+    if (value === "" || value == null) return "00:00";
+
+    value = String(value).trim();
+
+    if (/^\d+$/.test(value)) {
+      return `${String(parseInt(value)).padStart(2, "0")}:00`;
+    }
+
+    const parts = value.split(":");
+    if (parts.length === 2) {
+      let h = parseInt(parts[0].trim()) || 0;
+      let m = parseInt(parts[1].trim()) || 0;
+
+      return `${String(h).padStart(2, "0")}:${String(m).padStart(2, "0")}`;
+    }
+
+    return "00:00";
+  }
+
+  function sumarHorasArray(arr) {
+    let totalMinutos = 0;
+
+    arr.forEach((item) => {
+      let time = normalizeTime(item);
+      const [h, m] = time.split(":").map(Number);
+      totalMinutos += h * 60 + m;
+    });
+
+    let totalH = Math.floor(totalMinutos / 60);
+    let totalM = totalMinutos % 60;
+
+    return `${String(totalH).padStart(2, "0")}:${String(totalM).padStart(
+      2,
+      "0"
+    )}`;
+  }
 
   return (
     <div className="flex gap-2">
@@ -134,16 +178,16 @@ export default function TablaParos() {
         <tbody>
           {items.map((item, rowIdx) => (
             <tr key={rowIdx}>
-              <td className="border text-center">{item}</td>
+              <td className="border text-center text-xl">{item}</td>
 
               <td
-                className="border text-center h-8"
+                className="border text-center h-8 text-xl"
                 onClick={() => abrirModal(rowIdx, 0)}
               >
                 {datos.operacionales[rowIdx] || ""}
               </td>
               <td
-                className="border text-center h-8"
+                className="border text-center h-8 text-xl"
                 onClick={() => abrirModal(rowIdx, 1)}
               >
                 {datos.mecanicos[rowIdx] || ""}
@@ -151,6 +195,19 @@ export default function TablaParos() {
             </tr>
           ))}
         </tbody>
+        <tfoot>
+          <tr className="bg-neutral-200">
+            <td className="border font-semibold text-center text-xl">
+              Sumatoria
+            </td>
+            <td className="border text-center text-xl">
+              {sumarHorasArray(datos.operacionales)}
+            </td>
+            <td className="border text-center text-xl">
+              {sumarHorasArray(datos.mecanicos)}
+            </td>
+          </tr>
+        </tfoot>
       </table>
 
       <table className="table-fixed w-full border-collapse">
@@ -166,15 +223,15 @@ export default function TablaParos() {
 
         <tbody>
           {items.map((item, rowIdx) => (
-            <tr key={rowIdx} >
+            <tr key={rowIdx}>
               <td
-                className="border text-center h-4"
+                className="border text-center h-[32px] text-xl"
                 onClick={() => abrirModal(rowIdx, 2)}
               >
                 {datos.ajenos[rowIdx] || ""}
               </td>
               <td
-                className="border text-center h-4"
+                className="border text-center h-4 text-xl"
                 onClick={() => abrirModal(rowIdx, 3)}
               >
                 {datos.limpieza[rowIdx] || ""}
@@ -184,7 +241,7 @@ export default function TablaParos() {
               {rowIdx === 0 && (
                 <td
                   rowSpan={9} // o rowSpan={items.length} para que sea dinámico
-                  className="border text-center cursor-pointer"
+                  className="border text-center cursor-pointer text-xl"
                   onClick={() => abrirModal(0, 4)} // colIdx=4 → alimentacion; usamos rowIdx=0
                 >
                   {datos.alimentacion[0] || ""}
@@ -193,7 +250,21 @@ export default function TablaParos() {
             </tr>
           ))}
         </tbody>
+        <tfoot>
+          <tr className="bg-neutral-200">
+            <td className="border text-center text-xl">
+              {sumarHorasArray(datos.ajenos)}
+            </td>
+            <td className="border text-center text-xl">
+              {sumarHorasArray(datos.limpieza)}
+            </td>
+            <td className="border text-center text-xl">
+              {sumarHorasArray(datos.alimentacion)}
+            </td>
+          </tr>
+        </tfoot>
       </table>
+ 
 
       {modal.open && (
         <div className="fixed inset-0 bg-black/40 flex items-center justify-center ">
