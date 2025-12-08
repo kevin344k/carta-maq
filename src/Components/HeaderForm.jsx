@@ -11,6 +11,7 @@ export default function ElegantProductionForm() {
  const [anio, setAnio] = useState("");
  const [lote,setLote]=useState("");
  const [linea,setLinea]=useState("");
+  const [turno,setTurno]=useState("");
   const [formData, setFormData] = useState({
     Doc_num: "xxxxx-x-xxxxxx",
     anio: "",
@@ -167,11 +168,31 @@ export default function ElegantProductionForm() {
   }
 
 useEffect(() => {
-if(dia && mes && anio && lote && linea){
- setDoc_num(`${anio}${String(mes).padStart(2, '0')}${String(dia).padStart(2, '0')}-${lote}-${linea}`);
-}else{
-  setDoc_num("xxxxx-x-xxxxxx");
-}}, [dia,mes,anio,lote,linea]);
+  const todosLlenos = dia && mes && anio && lote && linea && turno;
+
+  if (todosLlenos) {
+    // Día y mes normalizados
+    const diaNorm = String(dia).padStart(2, "0");
+    const mesNorm = String(mes).padStart(2, "0");
+
+    // Últimos 2 dígitos del año
+    const anio2 = String(anio).slice(-2);
+
+    // Extraer solo el número de "Linea 4"
+    const lineaNum = linea.toString().replace(/\D/g, ""); // -> "4"
+    let Turno=""
+    if (/dia/i.test(turno)) Turno = "D";
+else if (/noche/i.test(turno)) Turno = "N";
+
+    // Formato final lote-linea-díamesaño
+    const doc = `${lote}-${lineaNum}-${diaNorm}${mesNorm}${anio2}-${Turno}`;
+
+    setDoc_num(doc);
+  } else {
+    setDoc_num("XXXXXX-X-XXXXXX-X");
+  }
+}, [dia, mes, anio, lote, linea,turno]);
+
 
 
 
@@ -198,7 +219,7 @@ if(dia && mes && anio && lote && linea){
               name="doc"
               value={doc_num}
            
-              className="w-40 border-b border-gray-300 px-4 py-2  rounded-none focus:outline-none  focus:ring-blue-500 transition duration-200 "
+              className="w-60 border-b border-gray-300 px-4 py-2 text-center rounded-none focus:outline-none  focus:ring-blue-500 transition duration-200 "
               readOnly
             />
           </div>
@@ -279,7 +300,7 @@ if(dia && mes && anio && lote && linea){
               </label>
               <input
                 type="text"
-                name="linea"
+                name="Descripcion"
                 disabled
                 value={formData.Descripcion}
                 className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200"
@@ -295,9 +316,9 @@ if(dia && mes && anio && lote && linea){
                 Línea
               </label>
               <select
-                value={formData.Linea}
+                value={linea}
                 name="Linea"
-                onChange={handleChange}
+                onChange={(e)=>{setLinea(e.target.value);}}
                 className="w-fit px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200"
               >
                 <option value="">-- Elige --</option>
@@ -327,8 +348,8 @@ if(dia && mes && anio && lote && linea){
               <input
                 type="text"
                 name="Lote"
-                value={formData.Lote}
-                onChange={handleChange}
+                value={lote}
+                onChange={(e)=>{setLote(e.target.value);}}
                 className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition duration-200"
               />
             </div>
@@ -341,8 +362,8 @@ if(dia && mes && anio && lote && linea){
                 <div className="relative">
                   <select
                     name="Turno"
-                    value={formData.Turno}
-                    onChange={handleChange}
+                    value={turno}
+                    onChange={(e)=>{setTurno(e.target.value);}}
                     className="w-full appearance-none bg-white px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-200"
                   >
                     <option value="">-- Elige --</option>
@@ -422,10 +443,10 @@ if(dia && mes && anio && lote && linea){
 
               <input
                 type="text"
-                name="linea"
+                name="Velocidad_nominal"
                 readOnly
                 value={formData.Velocidad_nominal}
-                onChange={handleChange}
+            
                 className="w-full px-4 py-2 border border-gray-400  focus:outline-none  transition duration-200 outline-none text-xl text-center text-neutral-500"
               />
             </div>
