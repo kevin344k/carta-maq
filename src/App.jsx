@@ -1,18 +1,24 @@
 
 
+import "react-toastify/dist/ReactToastify.css";
+import { Routes, Route } from "react-router-dom";
 import './App.css'
-import HeaderForm from './Components/HeaderForm'
+import Form from './views/Form'
+import View_ul from "./views/UlDashboard";
 
 function App() {
 
 
   return (
-    <>
-     <HeaderForm/>
+    <Routes>
+  
      
+<Route path="/ul" element={<Form />} />
+      <Route path="/ul/view-ul" element={<View_ul />} />
 
-     
-     </>
+
+
+     </Routes>
    
   )
 }

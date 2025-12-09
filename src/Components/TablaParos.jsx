@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export default function TablaParos({onDatosChange}) {
+export default function TablaParos({ onDatosChange, reset }) {
   const headers_1 = ["Paros(Hrs)", "Operacionales", "Mecánicos"];
   const headers_2 = ["Ajenos", "Limpieza", "Alimentación"];
 
@@ -26,9 +26,7 @@ export default function TablaParos({onDatosChange}) {
     ajenos: Array(9).fill(""),
     limpieza: Array(9).fill(""),
     alimentacion: Array(1).fill(""),
-   
   });
-
 
   /* Estado para saber qué celda se clikeó */
   const [modal, setModal] = useState({
@@ -36,8 +34,6 @@ export default function TablaParos({onDatosChange}) {
     rowIdx: null,
     colIdx: null,
   });
-
-
 
   /**Función para abrir el modal */
 
@@ -77,7 +73,6 @@ export default function TablaParos({onDatosChange}) {
           mecanicos: nuevosMecanicos,
         };
       });
-          
     }
     if (colIdx === 2) {
       setDatos((prev) => {
@@ -105,7 +100,6 @@ export default function TablaParos({onDatosChange}) {
       setDatos((prev) => {
         const nuevosAlimentacion = [...prev.alimentacion];
         nuevosAlimentacion[rowIdx] = valor;
-        
 
         return {
           ...prev,
@@ -113,17 +107,27 @@ export default function TablaParos({onDatosChange}) {
         };
       });
     }
-   
+
     setModal({ open: false, rowIdx: null, colKey: null });
     setHoras("");
     setMinutos("");
   };
 
-
-  useEffect(() => {     
+  useEffect(() => {
     onDatosChange(datos);
-  }, [datos,onDatosChange]);
+  }, [datos, onDatosChange]);
 
+  useEffect(() => {
+    if (reset) {
+      setDatos({
+        operacionales: Array(9).fill(""),
+        mecanicos: Array(9).fill(""),
+        ajenos: Array(9).fill(""),
+        limpieza: Array(9).fill(""),
+        alimentacion: Array(1).fill(""),
+      });
+    }
+  }, [reset]);
 
   function normalizeTime(value) {
     if (value === "" || value == null) return "00:00";
@@ -264,7 +268,6 @@ export default function TablaParos({onDatosChange}) {
           </tr>
         </tfoot>
       </table>
- 
 
       {modal.open && (
         <div className="fixed inset-0 bg-black/40 flex items-center justify-center ">

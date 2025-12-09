@@ -1,10 +1,12 @@
 import React, { useCallback, useEffect, useState } from "react";
 import data from "../data.json";
 import NumberFlow from "@number-flow/react";
+import { toast } from "react-toastify";
 import sku from "../sku.json";
-
-import TablaParos from "./TablaParos";
-export default function ElegantProductionForm() {
+import ButMenu from "../Components/ButMenu";
+import { ToastContainer } from "react-toastify";
+import TablaParos from "../Components/TablaParos";
+export default function Form() {
   const [doc_num, setDoc_num] = useState("xxxxx-x-xxxxxx");
   const [dia, setDia] = useState("");
   const [mes, setMes] = useState("");
@@ -12,9 +14,9 @@ export default function ElegantProductionForm() {
   const [lote, setLote] = useState("");
   const [linea, setLinea] = useState("");
   const [turno, setTurno] = useState("");
-   const [termsAgree, setTermsAgree] = useState(false);
+  const [termsAgree, setTermsAgree] = useState(false);
   const [formData, setFormData] = useState({
-    Doc_num: "xxxxx-x-xxxxxx",
+    Doc_num: "",
     anio: "",
     mes: "",
     dia: "",
@@ -34,10 +36,10 @@ export default function ElegantProductionForm() {
     merma: "",
     avs_averia: "",
     observaciones: "",
-    terms_agree:false,
+    terms_agree: false,
     paros: {},
   });
-
+  const [loadingForm, setLoadingForm] = useState(false);
   const [horasTeoricas, setHorasTeoricas] = useState("--Elige--");
   // const [horasTeoricas,setHorasTeoricas]=useState("--Elige--")
   const [loadingSKU, setLoadingSKU] = useState(false);
@@ -46,7 +48,7 @@ export default function ElegantProductionForm() {
   const totalAjenos = sumarHorasArray(formData.paros.ajenos);
   const totalLimpieza = sumarHorasArray(formData.paros.limpieza);
   const totalAlimentacion = sumarHorasArray(formData.paros.alimentacion);
-
+const [resetTableParos,setResetTableParos]=useState(false)
   const sumaTotal = sumarHorasArray([
     totalOperacionales,
     totalMecanicos,
@@ -236,9 +238,9 @@ export default function ElegantProductionForm() {
         anio: anio,
         mes: mes,
         dia: dia,
-        Lote:lote,
-        Turno:turno, 
-        Linea:linea,      
+        Lote: lote,
+        Turno: turno,
+        Linea: linea,
       }));
     } else {
       setDoc_num("XXXXXX-X-XXXXXX-X");
@@ -250,28 +252,171 @@ export default function ElegantProductionForm() {
     setFormData((prev) => ({ ...prev, Hrs_Produccion: result_resta }));
   }, [sumaTotal, horasTeoricas]);
 
-
-
-// Cuando cambia el checkbox
-const handleCheckboxChange = (e) => {
-  const { checked } = e.target;
-  setTermsAgree(checked);
-};
-
-
-useEffect(() => {
-  setFormData((prev) => ({ ...prev, terms_agree: termsAgree }));
-}, [termsAgree]);
-
-  
-  console.log(formData, sumaTotal, horasTeoricas);
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    alert("Formulario enviado");
+  // Cuando cambia el checkbox
+  const handleCheckboxChange = (e) => {
+    const { checked } = e.target;
+    setTermsAgree(checked);
   };
 
+  useEffect(() => {
+    setFormData((prev) => ({ ...prev, terms_agree: termsAgree }));
+  }, [termsAgree]);
+
+  console.log(formData, sumaTotal, horasTeoricas);
+
+  //Toast notifications
+
+  // Campos requeridos
+  const REQUIRED_FIELDS = [
+    "Doc_num",
+    "anio",
+    "mes",
+    "dia",
+    "Codigo",
+    "Categoria",
+    "Linea",
+    "Orden",
+    "Lote",
+    "Turno",
+    "Lider",
+    "Cant_Teorica",
+    "Cant_Entregada",
+    "Hrs_Teoricas",
+    // "Hrs_Produccion", // si es derivado, no lo pongas como requerido
+  ];
+
+  // Etiquetas amigables (para el toast)
+  const LABELS = {
+    Doc_num: "Documento",
+    anio: "Año",
+    mes: "Mes",
+    dia: "Día",
+    Codigo: "Código",
+    Categoria: "Categoría",
+    Linea: "Línea",
+    Orden: "Orden",
+    Lote: "Lote",
+    Turno: "Turno",
+    Lider: "Líder",
+    Cant_Teorica: "Cantidad teórica",
+    Cant_Entregada: "Cantidad entregada",
+    Hrs_Teoricas: "Horas teóricas",
+    Hrs_Produccion: "Horas de producción",
+    merma: "Merma",
+    avs_averia: "Aviso de Avería",
+    observaciones: "Observaciones",
+    terms_agree: "Aceptación de términos",
+  };
+
+  const isEmpty = (v) => v === "" || v === null || v === undefined;
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    // 1) Valida campos requeridos
+    const faltantes = REQUIRED_FIELDS.filter((key) => isEmpty(formData[key]));
+
+    // 2) Valida el checkbox
+    if (!formData.terms_agree) {
+      faltantes.push("terms_agree");
+    }
+
+    if (faltantes.length > 0) {
+      // Construye un mensaje amigable
+      const msg =
+        "Faltan datos: " + faltantes.map((k) => LABELS[k] ?? k).join(", ");
+
+      // Muestra push notification
+      toast.error(msg, {
+        // Opcionalmente puedes estilizarlo
+        style: { fontWeight: 600 },
+      });
+
+      // (Opcional) Marca errores en UI (si manejas error state por campo)
+      // setErrors(faltantes.reduce((acc, k) => ({ ...acc, [k]: true }), {}));
+
+      return; // Evita continuar si hay faltantes
+    }
+
+
+
+    setLoadingForm(true);
+
+    
+    try {
+          // OK -> construir payload y enviar
+    const payload = { ...formData };
+    // ...envío a API/DB
+      // URL del API: mejor usar variable de entorno
+      const API_URL = "http://10.72.21.163:3000/api";
+    console.log("sfjsfs",payload);
+      const resp = await fetch(`${API_URL}/produccion`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json", // importante para que Express haga parse
+        },
+        body: JSON.stringify(payload),
+      });
+console.log(resp);
+
+      if (!resp.ok) {
+        const error = await resp.json().catch(() => ({}));
+        throw new Error(error.error || `Error ${resp.status}`);
+      }
+
+      toast.success("Formulario enviado con éxito");
+      setFormData({
+    Doc_num: "",
+    anio: "",
+    mes: "",
+    dia: "",
+    Codigo: "",
+    Descripcion: "",
+    Categoria: "",
+    Linea: "",
+    Velocidad_nominal: "",
+    Orden: "",
+    Lote: "",
+    Turno: "",
+    Lider: "",
+    Cant_Teorica: "",
+    Cant_Entregada: "",
+    Hrs_Teoricas: "",
+    Hrs_Produccion: "",
+    merma: "",
+    avs_averia: "",
+    observaciones: "",
+    terms_agree: false,
+    paros: {},
+  })
+
+
+    setDoc_num("xxxxx-x-xxxxxx")
+    setDia("")
+    setMes("")
+    setAnio("")
+    setLote("")
+    setLinea("")
+    setTurno("")
+    setTermsAgree(false)
+    setHorasTeoricas("--Elige--")
+    setResetTableParos(true)
+
+    } catch (err) {
+      console.error(err);
+      toast.error("Error al enviar el formulario", {
+        // Opcionalmente puedes estilizarlo
+        style: { fontWeight: 600 },
+      });
+    } finally {
+      setLoadingForm(false);
+    }
+
+  };
+     
   return (
     <div className="min-h-screen bg-gray-100 flex justify-center items-center p-5">
+       <ButMenu></ButMenu>
       <form
         onSubmit={handleSubmit}
         autoComplete="Off"
@@ -652,7 +797,7 @@ useEffect(() => {
 
         {/* Tabla Paros */}
         <div className="flex flex-col  overflow-x-auto mb-6">
-          <TablaParos onDatosChange={handleUpdateParos}></TablaParos>
+          <TablaParos reset={resetTableParos} onDatosChange={handleUpdateParos}></TablaParos>
           <div className="self-end my-5 p-4 border border-neutral-200 rounded-lg bg-neutral-100">
             <p className="">
               Total(hrs) Paro:{" "}
@@ -689,6 +834,7 @@ useEffect(() => {
             type="checkbox"
             onChange={handleCheckboxChange}
             value={termsAgree}
+            name=""
             className="mr-2 scale-200 focus:outline-none"
           />
 
@@ -702,13 +848,45 @@ useEffect(() => {
         </div>
 
         {/* Botón */}
+
         <button
           type="submit"
-          className="w-full bg-blue-500 text-white font-semibold py-3 rounded-lg hover:bg-blue-600 transition duration-200 shadow"
+          disabled={loadingForm}
+          className={`w-full flex items-center justify-center gap-2 bg-blue-500 text-white font-semibold py-3 rounded-lg transition duration-200 shadow
+    ${loadingForm ? "opacity-80 cursor-not-allowed" : "hover:bg-blue-600"}
+  `}
+          aria-busy={loadingForm}
+          aria-disabled={loadingForm}
         >
-          Guardar
+          {loadingForm && (
+            // Spinner usando animate-spin de Tailwind y un SVG accesible
+            <svg
+              className="h-5 w-5 animate-spin text-white"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              role="status"
+              aria-label="Enviando..."
+            >
+              <circle
+                className="opacity-25"
+                cx="12"
+                cy="12"
+                r="10"
+                stroke="currentColor"
+                strokeWidth="4"
+              ></circle>
+              <path
+                className="opacity-75"
+                fill="currentColor"
+                d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"
+              ></path>
+            </svg>
+          )}
+          {loadingForm ? "Guardando..." : "Guardar"}
         </button>
       </form>
+       <ToastContainer position="top-center" autoClose={4000} newestOnTop />
     </div>
   );
 }
