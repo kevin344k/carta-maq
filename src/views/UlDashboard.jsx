@@ -32,6 +32,7 @@ function UlDashboard() {
       <tr class="bg-gray-200">
         <th class="px-4 py-2 text-left">ID</th>
         <th class="px-4 py-2 text-left">Doc. N°</th>
+         <th class="px-4 py-2 text-left">Fecha</th>
         <th class="px-4 py-2 text-left">Linea</th>
           <th class="px-4 py-2 text-left">Lider</th>
            <th class="px-4 py-2 text-left">UL</th>
@@ -45,11 +46,19 @@ function UlDashboard() {
           <tr className="odd:bg-white even:bg-gray-50 key={item.id}">
              <td className="px-4 py-2">{item.id}</td>
             <td className="px-4 py-2">{item.Doc_num}</td>
+               <td className="px-4 py-2">
+{new Date(item.fecha).toLocaleDateString("es-EC", {
+    year: "numeric",
+    month: "numeric",
+    day: "numeric",
+    timeZone: "America/Guayaquil"
+  })}
+</td>
               <td className="px-4 py-2">{item.Linea}</td>
                 <td className="px-4 py-2">{item.Lider}</td>
                 <td className="px-4 py-2 ">  <UlCell item={item} /></td>{/* //  UL*/}
                 
-                 <td className="px-4 py-2">{item.Lider}</td>
+                 <td className="px-4 py-2">{item.merma} kg</td>
           </tr>
         ))}
 
