@@ -33,7 +33,7 @@ export default function Form() {
     Cant_Entregada: "",
     Hrs_Teoricas: "",
     Hrs_Produccion: "",
-    merma: "",
+    merma: 0,
     avs_averia: "",
     observaciones: "",
     terms_agree: false,
@@ -48,7 +48,7 @@ export default function Form() {
   const totalAjenos = sumarHorasArray(formData.paros.ajenos);
   const totalLimpieza = sumarHorasArray(formData.paros.limpieza);
   const totalAlimentacion = sumarHorasArray(formData.paros.alimentacion);
-const [resetTableParos,setResetTableParos]=useState(false)
+  const [resetTableParos, setResetTableParos] = useState(false);
   const sumaTotal = sumarHorasArray([
     totalOperacionales,
     totalMecanicos,
@@ -338,18 +338,15 @@ const [resetTableParos,setResetTableParos]=useState(false)
       return; // Evita continuar si hay faltantes
     }
 
-
-
     setLoadingForm(true);
 
-    
     try {
-          // OK -> construir payload y enviar
-    const payload = { ...formData };
-    // ...envío a API/DB
+      // OK -> construir payload y enviar
+      const payload = { ...formData };
+      // ...envío a API/DB
       // URL del API: mejor usar variable de entorno
       const API_URL = "http://10.72.21.163:3000/api";
-    console.log("sfjsfs",payload);
+      console.log("sfjsfs", payload);
       const resp = await fetch(`${API_URL}/produccion`, {
         method: "POST",
         headers: {
@@ -357,7 +354,7 @@ const [resetTableParos,setResetTableParos]=useState(false)
         },
         body: JSON.stringify(payload),
       });
-console.log(resp);
+      console.log(resp);
 
       if (!resp.ok) {
         const error = await resp.json().catch(() => ({}));
@@ -366,42 +363,40 @@ console.log(resp);
 
       toast.success("Formulario enviado con éxito");
       setFormData({
-    Doc_num: "",
-    anio: "",
-    mes: "",
-    dia: "",
-    Codigo: "",
-    Descripcion: "",
-    Categoria: "",
-    Linea: "",
-    Velocidad_nominal: "",
-    Orden: "",
-    Lote: "",
-    Turno: "",
-    Lider: "",
-    Cant_Teorica: "",
-    Cant_Entregada: "",
-    Hrs_Teoricas: "",
-    Hrs_Produccion: "",
-    merma: "",
-    avs_averia: "",
-    observaciones: "",
-    terms_agree: false,
-    paros: {},
-  })
+        Doc_num: "",
+        anio: "",
+        mes: "",
+        dia: "",
+        Codigo: "",
+        Descripcion: "",
+        Categoria: "",
+        Linea: "",
+        Velocidad_nominal: "",
+        Orden: "",
+        Lote: "",
+        Turno: "",
+        Lider: "",
+        Cant_Teorica: "",
+        Cant_Entregada: "",
+        Hrs_Teoricas: "",
+        Hrs_Produccion: "",
+        merma: "",
+        avs_averia: "",
+        observaciones: "",
+        terms_agree: false,
+        paros: {},
+      });
 
-
-    setDoc_num("xxxxx-x-xxxxxx")
-    setDia("")
-    setMes("")
-    setAnio("")
-    setLote("")
-    setLinea("")
-    setTurno("")
-    setTermsAgree(false)
-    setHorasTeoricas("--Elige--")
-    setResetTableParos(true)
-
+      setDoc_num("xxxxx-x-xxxxxx");
+      setDia("");
+      setMes("");
+      setAnio("");
+      setLote("");
+      setLinea("");
+      setTurno("");
+      setTermsAgree(false);
+      setHorasTeoricas("--Elige--");
+      setResetTableParos(true);
     } catch (err) {
       console.error(err);
       toast.error("Error al enviar el formulario", {
@@ -411,12 +406,11 @@ console.log(resp);
     } finally {
       setLoadingForm(false);
     }
-
   };
-     
+
   return (
     <div className="min-h-screen bg-gray-100 flex justify-center items-center p-5">
-       <ButMenu></ButMenu>
+      <ButMenu></ButMenu>
       <form
         onSubmit={handleSubmit}
         autoComplete="Off"
@@ -629,11 +623,15 @@ console.log(resp);
                     className="w-full appearance-none bg-white px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-200"
                   >
                     <option value="">-- Elige --</option>
-                    {data.Helados.lider.map((option, index) => (
-                      <option key={index} value={option.Nombre}>
-                        {option.Nombre}
-                      </option>
-                    ))}
+
+                    {data.Helados.lider
+                      .slice() // crea una copia para no mutar el original
+                      .sort((a, b) => a.Nombre.localeCompare(b.Nombre)) // ordena por Nombre
+                      .map((option, index) => (
+                        <option key={index} value={option.Nombre}>
+                          {option.Nombre}
+                        </option>
+                      ))}
                   </select>
                   {/* Ícono de flecha */}
                   <div className="absolute inset-y-0 right-3 flex items-center pointer-events-none">
@@ -756,7 +754,7 @@ console.log(resp);
               </div>
             </div>
             {/**Merma */}
-            <div className="pr-3">
+            <div className="pr-3 opacity-1">
               <div className="flex justify-between gap-3">
                 <label className="block text-gray-600 font-medium mb-1 ">
                   Merma(Kg)
@@ -779,8 +777,8 @@ console.log(resp);
                 </p>
               </div>
               <div className="flex flex-1 items-center justify-center gap-1 border  border-gray-300 rounded-br-lg rounded-bl-lg  ">
-                <NumberFlow className="text-4xl" value={124} />
-                <p className="text-2xl text-gray-600 "> %</p>
+                {/* <NumberFlow className="text-4xl" value={124} />*/}
+                <p className="text-2xl text-gray-600 italic"> Proximamente</p>
               </div>
             </div>
             <div className="flex flex-col  rounded-lg h-full ">
@@ -788,8 +786,8 @@ console.log(resp);
                 <p className="text-xl text-gray-600">Merma</p>
               </div>
               <div className="flex flex-1 items-center justify-center gap-1 border  border-gray-300 rounded-br-lg rounded-bl-lg  ">
-                <NumberFlow className="text-4xl" value={124} />
-                <p className="text-2xl text-gray-600 "> %</p>
+                {/* <NumberFlow className="text-4xl" value={124} />*/}
+                <p className="text-2xl text-gray-600 italic"> Proximamente</p>
               </div>
             </div>
           </div>
@@ -797,7 +795,10 @@ console.log(resp);
 
         {/* Tabla Paros */}
         <div className="flex flex-col  overflow-x-auto mb-6">
-          <TablaParos reset={resetTableParos} onDatosChange={handleUpdateParos}></TablaParos>
+          <TablaParos
+            reset={resetTableParos}
+            onDatosChange={handleUpdateParos}
+          ></TablaParos>
           <div className="self-end my-5 p-4 border border-neutral-200 rounded-lg bg-neutral-100">
             <p className="">
               Total(hrs) Paro:{" "}
@@ -886,7 +887,7 @@ console.log(resp);
           {loadingForm ? "Guardando..." : "Guardar"}
         </button>
       </form>
-       <ToastContainer position="top-center" autoClose={4000} newestOnTop />
+      <ToastContainer position="top-center" autoClose={4000} newestOnTop />
     </div>
   );
 }

@@ -92,7 +92,7 @@
   },
   {
     "Codigo": "1002991",
-    "Descripcion": "AASS BIG BAR PAQUETERIA ",
+    "Descripcion": "AASS BIG BAR PAQUETERIA ",
     "Categoria": "HELADOS",
     "Linea": "LINEA 1",
     "Velocidad_nominal": "6000"
@@ -200,21 +200,21 @@
     "Descripcion": "HELADO CONO FLAMA(1x24u)",
     "Categoria": "HELADOS",
     "Linea": "LINEA 4",
-    "Velocidad_nominal": "7000"
+    "Velocidad_nominal": "4500"
   },
   {
     "Codigo": "1000000",
     "Descripcion": "HELADO ALFAJOR 47gr.(1x20u)",
     "Categoria": "HELADOS",
     "Linea": "LINEA 4",
-    "Velocidad_nominal": "6000"
+    "Velocidad_nominal": "4500"
   },
   {
     "Codigo": "1000019",
     "Descripcion": "HELADO GALL.VAINILLA(1x20u)",
     "Categoria": "HELADOS",
     "Linea": "LINEA 4",
-    "Velocidad_nominal": "7000"
+    "Velocidad_nominal": "5000"
   },
   {
     "Codigo": "1000015",
@@ -235,7 +235,7 @@
     "Descripcion": "HELADO TONI MAJESTIK VAINILLA 105 ML",
     "Categoria": "HELADOS",
     "Linea": "LINEA 4",
-    "Velocidad_nominal": "7000"
+    "Velocidad_nominal": "5000"
   },
   {
     "Codigo": "1004315",
@@ -249,14 +249,14 @@
     "Descripcion": "HELADO MAJESTIK ALMENDRA(1x14u)",
     "Categoria": "HELADOS",
     "Linea": "LINEA 4",
-    "Velocidad_nominal": "7000"
+    "Velocidad_nominal": "5000"
   },
   {
     "Codigo": "1001800",
     "Descripcion": "HELADO CONO FLAMA BLANCO",
     "Categoria": "HELADOS",
     "Linea": "LINEA 4",
-    "Velocidad_nominal": "7000"
+    "Velocidad_nominal": "4500"
   },
   {
     "Codigo": "1004188",
@@ -284,35 +284,35 @@
     "Descripcion": "HELADO TOPSY CHOC (1x60u)",
     "Categoria": "HELADOS",
     "Linea": "LINEA 5",
-    "Velocidad_nominal": "15000"
+    "Velocidad_nominal": "14500"
   },
   {
     "Codigo": "1000059",
     "Descripcion": "HELADO CHOC BLANCO (1x60u)",
     "Categoria": "HELADOS",
     "Linea": "LINEA 5",
-    "Velocidad_nominal": "15000"
+    "Velocidad_nominal": "14500"
   },
   {
     "Codigo": "1004274",
     "Descripcion": "TOPSY CHOCO CHOC 60ML CAJA X 60 UNIDADES",
     "Categoria": "HELADOS",
     "Linea": "LINEA 5",
-    "Velocidad_nominal": "15000"
+    "Velocidad_nominal": "14500"
   },
   {
     "Codigo": "1002701",
     "Descripcion": "TOPSY CHOC FRUTILLA 60ML",
     "Categoria": "HELADOS",
     "Linea": "LINEA 5",
-    "Velocidad_nominal": "15000"
+    "Velocidad_nominal": "14500"
   },
   {
     "Codigo": "1000065",
     "Descripcion": "TU Y YO (1x24u)",
     "Categoria": "HELADOS",
     "Linea": "LINEA 5",
-    "Velocidad_nominal": "12500"
+    "Velocidad_nominal": "12000"
   },
   {
     "Codigo": "1004223",
@@ -964,5 +964,19 @@
     "Categoria": "HELADOS",
     "Linea": "LINEA 4",
     "Velocidad_nominal": "5000"
+  },
+  {
+    "Codigo": "1004563",
+    "Descripcion": "PISTACHIO MAJESTIK ICE CREAM BAR 4.2FL OZ ",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 4",
+    "Velocidad_nominal": "5000"
+  },
+  {
+    "Codigo": "1004542",
+    "Descripcion": "HELADO FROZEN DUO LIMONADA DE FRESA (1X24)",
+    "Categoria": "HELADOS",
+    "Linea": "LINEA 2",
+    "Velocidad_nominal": "8500"
   }
 ]

@@ -23,18 +23,22 @@ function UlDashboard() {
 
 
   return (
-    <div className="px-2 lg:w-3/4 mx-auto mt-12">
+    <div className="px-2 lg:w-[95%] mx-auto mt-12">
      
    <ButMenu></ButMenu>
 <div class="overflow-x-auto">
-  <table class="min-w-full border border-gray-300">
+  <table class="min-w-full border border-gray-300 text-sm">
     <thead>
       <tr class="bg-gray-200">
         <th class="px-4 py-2 text-left">ID</th>
         <th class="px-4 py-2 text-left">Doc. N°</th>
+         <th class="px-4 py-2 text-left">Orden</th>
          <th class="px-4 py-2 text-left">Fecha</th>
         <th class="px-4 py-2 text-left">Linea</th>
+         <th class="px-4 py-2 text-left">Codigo</th>
+          <th class="px-4 py-2 text-left">Descripcion</th>
           <th class="px-4 py-2 text-left">Lider</th>
+          <th class="px-4 py-2 text-left">Cant. Entregada</th>
            <th class="px-4 py-2 text-left">UL</th>
               <th class="px-4 py-2 text-left">Merma</th>
       </tr>
@@ -44,9 +48,10 @@ function UlDashboard() {
 
   {data.map((item) => (
           <tr className="odd:bg-white even:bg-gray-50 key={item.id}">
-             <td className="px-4 py-2">{item.id}</td>
-            <td className="px-4 py-2">{item.Doc_num}</td>
-               <td className="px-4 py-2">
+             <td className="odd:bg-white even:bg-gray-50 px-4 py-2">{item.id}</td>
+            <td className=" odd:bg-white even:bg-gray-50 px-4 py-2">{item.Doc_num}</td>
+            <td className=" odd:bg-white even:bg-gray-50 px-4 py-2">{item.Orden}</td>
+               <td className=" odd:bg-white even:bg-gray-50 px-4 py-2">
 {new Date(item.fecha).toLocaleDateString("es-EC", {
     year: "numeric",
     month: "numeric",
@@ -54,9 +59,12 @@ function UlDashboard() {
     timeZone: "America/Guayaquil"
   })}
 </td>
-              <td className="px-4 py-2">{item.Linea}</td>
-                <td className="px-4 py-2">{item.Lider}</td>
-                <td className="px-4 py-2 ">  <UlCell item={item} /></td>{/* //  UL*/}
+              <td className="odd:bg-white even:bg-gray-50 px-4 py-2">{item.Linea}</td>
+               <td className="odd:bg-white even:bg-gray-50 px-4 py-2">{item.Codigo}</td>
+                <td className="odd:bg-white even:bg-gray-50 px-4 py-2">{item.Descripcion}</td>
+                 <td className="odd:bg-white even:bg-gray-50 px-4 py-2">{item.Lider}</td>
+                 <td className="odd:bg-white even:bg-gray-50 px-4 py-2 truncate">{item.Cant_Entregada}</td>
+                <td className="odd:bg-white even:bg-gray-50 px-4 py-2 ">  <UlCell item={item} /></td>{/* //  UL*/}
                 
                  <td className="px-4 py-2">{item.merma} kg</td>
           </tr>
