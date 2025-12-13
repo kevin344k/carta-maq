@@ -2,10 +2,12 @@
 import { parseHoursToInt } from "../Utils/time";
 
 function UlCell({ item }) {
-  const entregada = Number(item?.Cant_Entregada);
+  const entregada = Number(item?.cant_entregada);
   const velocidad = Number(item?.Velocidad_nominal);
   const horasTeoricas = parseHoursToInt(item?.Hrs_Teoricas);
 
+  console.log(item);
+  
   // Validaciones básicas
   const canCalc =
     Number.isFinite(entregada) &&
@@ -24,13 +26,13 @@ function UlCell({ item }) {
   // Estilos condicionales
   const isGood = ul != null && ul >= 50;
   const tdClass = isGood
-    ? "px-4 py-2 bg-green-600 text-white font-medium rounded-sm"
-    : "px-4 py-2 bg-red-600 text-white font-medium rounded-sm";
+    ? "px-2 py-2 text-center bg-green-600 text-white font-medium rounded-sm"
+    : "px-2 py-2  text-center bg-red-600 text-white font-medium rounded-sm";
 
   return (
-    <td className={ul == null ? "px-4 py-2 bg-gray-200 text-gray-700" : tdClass}>
+    <div className={ul == null ? "px-3 py-2 text-center bg-gray-200 text-gray-700" : tdClass}>
       {ulDisplay}
-    </td>
+    </div>
   );
 }
 

@@ -5,26 +5,26 @@ export default function ButMenu() {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="fixed top-4 right-4 z-50 ">
+    <div className="fixed top-1 right-4 z-50 ">
       {/* Botón hamburguesa */}
   <button
   onClick={() => setOpen(!open)}
-  className="relative w-18 h-18 rounded-full border border-neutral-100 bg-white flex justify-center items-center cursor-pointer transition-all duration-300 shadow-md"
+  className="relative w-12 h-12 rounded-full border border-neutral-100 bg-white flex justify-center items-center cursor-pointer transition-all duration-300 shadow-md"
 >
   <span
-    className={`absolute w-8 h-0.5 bg-neutral-500 transition-transform duration-300 ${
+    className={`absolute w-6 h-0.5 bg-neutral-500 transition-transform duration-300 ${
       open ? "rotate-45" : "-translate-y-2"
     }`}
     style={{ transformOrigin: "center" }}
   ></span>
   <span
-    className={`absolute w-8 h-0.5 bg-neutral-500 transition-opacity duration-300 ${
+    className={`absolute w-6 h-0.5 bg-neutral-500 transition-opacity duration-300 ${
       open ? "opacity-0" : "opacity-100"
     }`}
     style={{ transformOrigin: "center" }}
   ></span>
   <span
-    className={`absolute w-8 h-0.5 bg-neutral-500 transition-transform duration-300 ${
+    className={`absolute w-6 h-0.5 bg-neutral-500 transition-transform duration-300 ${
       open ? "-rotate-45" : "translate-y-2"
     }`}
     style={{ transformOrigin: "center" }}
