@@ -29,6 +29,7 @@ export default function Form() {
     Lote: "",
     Turno: "",
     Lider: "",
+    Supervisor:"",
     Cant_Teorica: "",
     Cant_Entregada: "",
     Hrs_Teoricas: "",
@@ -279,6 +280,7 @@ export default function Form() {
     "Lote",
     "Turno",
     "Lider",
+     "Supervisor",
     "Cant_Teorica",
     "Cant_Entregada",
     "Hrs_Teoricas",
@@ -298,6 +300,7 @@ export default function Form() {
     Lote: "Lote",
     Turno: "Turno",
     Lider: "Líder",
+    Supervisor: "Supervisor",
     Cant_Teorica: "Cantidad teórica",
     Cant_Entregada: "Cantidad entregada",
     Hrs_Teoricas: "Horas teóricas",
@@ -376,6 +379,7 @@ export default function Form() {
         Lote: "",
         Turno: "",
         Lider: "",
+        Supervisor: "",
         Cant_Teorica: "",
         Cant_Entregada: "",
         Hrs_Teoricas: "",
@@ -610,7 +614,7 @@ export default function Form() {
                 </div>
               </div>
             </div>
-            <div className="col-span-2">
+            <div className="cols-span-2 flex w-full flex-row-reverse">
               <div className="w-full">
                 <label className="block text-gray-700 font-semibold mb-2">
                   Líder
@@ -651,7 +655,47 @@ export default function Form() {
                   </div>
                 </div>
               </div>
+              
             </div>
+             <div className="w-full">
+                <label className="block text-gray-700 font-semibold mb-2">
+                  Supervisor
+                </label>
+                <div className="relative">
+                  <select
+                    value={formData.Supervisor}
+                    onChange={handleChange}
+                    name="Supervisor"
+                    className="w-full appearance-none bg-white px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-200"
+                  >
+                    <option value="">-- Elige --</option>
+
+                    {data.Helados.supervisores
+                 
+                      .map((option, index) => (
+                        <option key={index} value={option}>
+                          {option}
+                        </option>
+                      ))}
+                  </select>
+                  {/* Ícono de flecha */}
+                  <div className="absolute inset-y-0 right-3 flex items-center pointer-events-none">
+                    <svg
+                      className="w-5 h-5 text-gray-400"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        d="M19 9l-7 7-7-7"
+                      />
+                    </svg>
+                  </div>
+                </div>
+              </div>
           </div>
           <div className="grid row-span-2 mt-6">
             <div>
