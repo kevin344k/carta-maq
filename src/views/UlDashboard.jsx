@@ -22,14 +22,16 @@ function UlDashboard() {
         <table className="min-w-full border border-gray-300 text-sm">
           <thead>
             <tr className="bg-gray-200">
-              <th className="px-4 py-2 text-left">ID</th>
               <th className="px-4 py-2 text-left">Doc. N°</th>
+              <th className="px-4 py-2 text-left">Supervisor</th>
               <th className="px-4 py-2 text-left">Orden</th>
               <th className="px-4 py-2 text-left">Fecha</th>
               <th className="px-4 py-2 text-left">Linea</th>
               <th className="px-4 py-2 text-left">Codigo</th>
               <th className="px-4 py-2 text-left">Descripcion</th>
               <th className="px-4 py-2 text-left">Lider</th>
+              <th className="px-4 py-2 text-left">Hrs. Teoricas</th>
+              <th className="px-4 py-2 text-left">Hrs. Produccion</th>
               <th className="px-4 py-2 text-left">Cant. Entregada</th>
               <th className="px-4 py-2 text-left">UL</th>
               <th className="px-4 py-2 text-left">Merma</th>
@@ -38,11 +40,11 @@ function UlDashboard() {
           <tbody>
             {data.map((item) => (
               <tr className="odd:bg-white even:bg-gray-50 key={item.id}">
-                <td className="odd:bg-white even:bg-gray-50 px-4 py-2">
-                  {item.id}
-                </td>
                 <td className=" odd:bg-white even:bg-gray-50 px-4 py-2">
                   {item.doc_num}
+                </td>
+                <td className=" odd:bg-white even:bg-gray-50 px-4 py-2">
+                  {item.supervisor}
                 </td>
                 <td className=" odd:bg-white even:bg-gray-50 px-4 py-2">
                   {item.orden}
@@ -67,15 +69,19 @@ function UlDashboard() {
                 <td className="odd:bg-white even:bg-gray-50 px-4 py-2">
                   {item.lider}
                 </td>
+                <td className="odd:bg-white even:bg-gray-50 px-4 py-2">
+                  {item.Hrs_Teoricas?.slice(0, 5)}
+                </td>
+                <td className="odd:bg-white even:bg-gray-50 px-4 py-2">
+                  {item.Hrs_Produccion?.slice(0, 5)}
+                </td>
+
                 <td className="odd:bg-white even:bg-gray-50 px-4 py-2 truncate">
                   {item.cant_entregada}
                 </td>
-             <td className="odd:bg-white even:bg-gray-50 px-4 py-2 truncate">
-                   <UlCell item={item} />
+                <td className="odd:bg-white even:bg-gray-50 px-4 py-2 truncate">
+                  <UlCell item={item} />
                 </td>
-                
-               
-              
 
                 <td className="px-4 py-2">{item.merma} kg</td>
               </tr>
