@@ -412,6 +412,11 @@ export default function Form() {
     }
   };
 
+
+
+  console.log(termsAgree);
+  
+
   return (
     <div className="min-h-screen bg-gray-100 flex justify-center items-center p-5">
       <ButMenu></ButMenu>
@@ -858,6 +863,7 @@ export default function Form() {
           </label>
           <textarea
             name="avs_averia"
+             value={formData.avs_averia}
             onChange={handleChange}
             className="w-full h-20 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none p-1"
           ></textarea>
@@ -868,6 +874,7 @@ export default function Form() {
           </label>
           <textarea
             name="observaciones"
+            value={formData.observaciones}
             onChange={handleChange}
             className="w-full h-20 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none p-1"
           ></textarea>
