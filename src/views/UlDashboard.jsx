@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import ButMenu from "../Components/ButMenu";
 import UlCell from "../Components/ULCell";
 import Filter from "../Components/Filter";
+import RowParos from "../Components/RowParos";
 
 function UlDashboard() {
   const [data, setData] = useState([]);
@@ -35,11 +36,12 @@ function UlDashboard() {
               <th className="px-2 py-2 text-left">Cant. Entregada</th>
               <th className="px-2 py-2 text-left">UL</th>
               <th className="px-2 py-2 text-left">Merma</th>
+              <th className="px-2 py-2 text-left">...</th>
             </tr>
           </thead>
           <tbody>
             {data.map((item) => (
-              <tr className="odd:bg-white even:bg-gray-50 key={item.id}">
+              <>  <tr className="odd:bg-white even:bg-gray-50 key={item.id}">
                 <td className=" odd:bg-white even:bg-gray-50 px-2 text-center py-2 md:text-xs">
                   {item.doc_num}
                 </td>
@@ -85,6 +87,12 @@ function UlDashboard() {
 
                 <td className="px-4 py-2">{item.merma} kg</td>
               </tr>
+             
+            {/*    <RowParos  nominal_v={item.Velocidad_nominal}  obs={item.observaciones} paros={item.paros}></RowParos>*/}
+           
+              </>
+            
+              
             ))}
           </tbody>
         </table>
