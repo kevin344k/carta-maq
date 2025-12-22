@@ -6,6 +6,7 @@ import sku from "../sku.json";
 import ButMenu from "../Components/ButMenu";
 import { ToastContainer } from "react-toastify";
 import TablaParos from "../Components/TablaParos";
+import UlCell from "../Components/ULCell";
 export default function Form() {
   const [doc_num, setDoc_num] = useState("xxxxx-x-xxxxxx");
   const [dia, setDia] = useState("");
@@ -67,7 +68,7 @@ export default function Form() {
     if (e.target.value === "") {
       setLoadingSKU(false);
     }
-
+ 
     // Si el campo es "Codigo", buscamos el producto
     if (name === "Codigo") {
       const productoEncontrado = sku.find((p) => p.Codigo === value);
@@ -414,7 +415,7 @@ export default function Form() {
 
 
 
-  console.log(termsAgree);
+
   
 
   return (
@@ -827,7 +828,10 @@ export default function Form() {
               </div>
               <div className="flex flex-1 items-center justify-center gap-1 border  border-gray-300 rounded-br-lg rounded-bl-lg  ">
                 {/* <NumberFlow className="text-4xl" value={124} />*/}
-                <p className="text-2xl text-gray-600 italic"> Proximamente</p>
+              
+             
+             <UlCell item={formData}></UlCell>
+             
               </div>
             </div>
             <div className="flex flex-col  rounded-lg h-full ">

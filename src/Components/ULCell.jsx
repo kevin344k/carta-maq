@@ -2,11 +2,13 @@
 import { parseHoursToInt } from "../Utils/time";
 
 function UlCell({ item }) {
-  const entregada = Number(item?.cant_entregada);
+  
+  
+  const entregada = Number(item?.cant_entregada) || Number(item?.Cant_Entregada) ;
   const velocidad = Number(item?.Velocidad_nominal);
   const horasTeoricas = parseHoursToInt(item?.Hrs_Teoricas);
 
-  console.log(item);
+console.log(entregada,velocidad,horasTeoricas);
   
   // Validaciones básicas
   const canCalc =
