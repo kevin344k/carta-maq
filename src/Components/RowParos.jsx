@@ -1,7 +1,4 @@
-/**
- * Convierte una entrada de duración a minutos.
- * Soporta: "HH:MM", "HH:MM:SS", números (minutos), o números grandes (segundos).
- */
+
 function toMinutes(val) {
   if (val == null) return 0;
 
@@ -71,11 +68,11 @@ export default function RowParos({ paros, obs,nominal_v }) {
   // console.log('Totales en minutos:', totalesMin);
 
   return (
-    <tr className="relative h-12 ">
+    <tr className="relative h-18 py-12">
       <div className="w-full pl-12 absolute left-0 gap-12 ">
         {/* Un ejemplo: primera celda título */}
 
-        <div className="flex gap-15">
+        <div className="flex gap-15 items-center justify-center">
           {/* Una celda por cada tipo, mostrando HH:MM */}
           <div>
             <span className=" italic">Velocidad Nominal: </span>

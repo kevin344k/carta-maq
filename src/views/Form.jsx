@@ -506,7 +506,7 @@ export default function Form() {
           <div className="grid grid-cols-3 gap-2 col-span-3  ">
             <div className="">
               <label className="block text-gray-600 font-medium mb-1">
-                SKU
+                SKU(Nro de Material)
               </label>
               <input
                 type="text"
@@ -730,7 +730,7 @@ export default function Form() {
             <div className="flex flex-col gap-3 ">
               <div className="flex justify-between gap-3">
                 <label className="block text-gray-600 font-medium mb-1 ">
-                  Cant. Teórica
+                  Cant. Teórica(und)
                 </label>
                 <input
                   type="text"
@@ -743,7 +743,7 @@ export default function Form() {
               </div>
               <div className="flex justify-between gap-3">
                 <label className="block text-gray-600 font-medium mb-1">
-                  Cant. Entregada
+                  Cant. Entregada(und)
                 </label>
                 <input
                   type="text"

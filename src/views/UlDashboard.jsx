@@ -3,7 +3,8 @@ import { useEffect, useState } from "react";
 import ButMenu from "../Components/ButMenu";
 import UlCell from "../Components/ULCell";
 import datos from "../data.json";
-// import RowParos from "../Components/RowParos";
+ import RowParos from "../Components/RowParos";
+import ToggleButton from "../Components/ToggleButton";
 
 function UlDashboard() {
   const [data, setData] = useState([]);
@@ -15,7 +16,7 @@ function UlDashboard() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [filtroLinea,setFiltroLinea]=useState("")
-
+ const [expandedId, setExpandedId] = useState(null);
 
 console.log(filtroLinea);
 
@@ -76,6 +77,13 @@ console.log(filtroLinea);
     if (val === null || val === undefined) return "";
     return val;
   };
+
+
+
+  const toggleRow = (id) => {
+    setExpandedId((prev) => (prev === id ? null : id));
+  };
+
 
   return (
     <div className="px-2 lg:w-[97%] mx-auto mt-7">
@@ -187,7 +195,7 @@ console.log(filtroLinea);
           </thead>
           <tbody>
             {data.map((item) => (
-              <tr key={item.id} className="odd:bg-white even:bg-gray-50">
+             <> <tr key={item.id} className="odd:bg-white even:bg-gray-50">
                 <td className="px-2 text-center py-2 md:text-xs">{item.doc_num}</td>
                 <td className="px-2 text-center py-2 md:text-xs">{item.supervisor}</td>
                 <td className="px-2 text-center py-2 md:text-xs">{item.orden}</td>
@@ -203,10 +211,11 @@ console.log(filtroLinea);
                   <UlCell item={item} />
                 </td>
                 <td className="px-4 py-2">{item.merma} kg</td>
+                <td><ToggleButton></ToggleButton></td>
               </tr>
-              // Si luego quieres mostrar paros debajo:
-              // <RowParos nominal_v={item.Velocidad_nominal} obs={item.observaciones} paros={item.paros} />
-            ))}
+             
+               <RowParos nominal_v={item.Velocidad_nominal} obs={item.observaciones} paros={item.paros} />
+          </>  ))}
           </tbody>
         </table>
 
